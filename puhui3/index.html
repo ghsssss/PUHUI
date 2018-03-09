@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no"/>
+    <meta charset="UTF-8">
+    <title>普惠新视界</title>
+    <link rel="stylesheet" href="css/index.css" type="text/css"/>
+    <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="http://wxapi.accdo.com/get_wx_conf"></script>
+    <style>
+        img {
+            width: 100%;
+        }
+
+        p {
+            margin: 0 0.4rem;
+        }
+    </style>
+</head>
+<body class="interaction">
+<img src="img/p0.jpg">
+<br>
+<br>
+<p>《普惠视点》已经默默地陪在大家身边一年了，</p>
+<p>这是由普惠人自创自编，围绕普惠人和大普惠发展点点滴滴的栏目。</p>
+<p>感谢大家的一路陪伴和支持！</p>
+<p>新一期新一期《普惠视点》不仅在职场观看,</p>
+<p>还可以随地随地、各种姿势通过手机观看节目（想想还有点小激动呢~~）</p>
+<p>视点换新貌，只为给你不一样的收看体验。</p>
+<br>
+<br>
+<p>本期视点，带大家走进清新范儿咖啡厅，以最悠闲的姿态一起聊聊普惠的大事、小事、身边事。</p>
+<img src="img/p1.jpg">
+<p>用微薄的一点力量，给社会一份大爱，普惠推出了“信任接力，成长不孤‘读’公益活动，全国各大机构积极性应，还自发开展了格式各样的公益活动。</p>
+<img src="img/p2.jpg">
+<p>普惠篮球健儿们在集团“工会杯”篮球赛中取得了不错的成绩，现场第一战况独家转播。</p>
+<img src="img/p3.jpg">
+<p>“听客户的声音，看我们的改变；谈客户的体验，赢我们的明天”，听口号，识部门，不用怀疑，本期做客《普惠微剧场》的就是wuli客户体验大家庭~</p>
+<img src="img/p4.jpg">
+<br>
+<br>
+<p>更多精彩内容，点开下方视频在线观看吧！片尾还有彩蛋哦~</p>
+<br>
+<video src="http://ptblack.oss-cn-hangzhou.aliyuncs.com/video.mp4" autoplay loop style="width: 100%" id="vid">
+    您的浏览器版本过低，不支持h5，请换浏览器！
+</video>
+<br>
+<br>
+<br>
+<br>
+<img src="img/p5.jpg">
+<br>
+<br>
+<br>
+<br>
+<script>
+    //自动滚动的定时器
+    function changeHight() {
+        var beforeHeight = $(".interaction").scrollTop();
+        console.log(beforeHeight);
+        $(".interaction").scrollTop($(".interaction").scrollTop() + 1);
+        var afterHeight = $(".interaction").scrollTop();
+        console.log(afterHeight);
+        if (beforeHeight == afterHeight) {
+            alert("ok");
+        } else {
+            setTimeout("changeHight()", 10);
+        }
+    }
+    setTimeout(changeHight, 1000);
+    $(".interaction").on('touchend', function () {
+        clearTimeout(changeHight())
+    })
+</script>
+<script>
+    wx.ready(function () {
+        // 在这里调用 API
+        // 在这里调用 API
+        document.getElementById("vid").play();
+        wx.onMenuShareTimeline({
+            title: '普惠新视界', // 分享标题
+            link: 'http://pingan.accdo.com/puhui/yk0605/', // 分享链接
+            imgUrl: 'http://pingan.accdo.com/puhui/yk0605/img/wx.jpg', // 分享图标
+            success: function () {
+
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+
+                // 用户取消分享后执行的回调函数
+            }
+        });
+        wx.onMenuShareAppMessage({
+            title: '普惠新视界（5月刊）', // 分享标题
+            desc: '在这里读懂普惠', // 分享描述
+            link: 'http://pingan.accdo.com/puhui/yk0605/', // 分享链接
+            imgUrl: 'http://pingan.accdo.com/puhui/yk0605/img/wx.jpg', // 分享图标
+            type: 'link', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+
+                // 用户取消分享后执行的回调函数
+            }
+        });
+    });
+</script>
+</body>
+</html>
